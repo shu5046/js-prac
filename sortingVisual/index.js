@@ -4,11 +4,12 @@ const start = document.getElementById("start");
 let slider = document.getElementById("slider");
 let sliderValue = document.getElementById("sliderValue");
 let numbar = document.getElementById("numbars");
+const reset = document.getElementById("reset");
 let delay = 20;
 
 numbar.addEventListener("input", function(){
   num = this.value;
-  (function (num) {
+  (async function () {
     container.innerHTML = "";
     for (let i = 0; i < num; i++) {
       let value = Math.floor(Math.random() * 100) + 1;
@@ -18,23 +19,30 @@ numbar.addEventListener("input", function(){
       bar.style.width = `${600 / num}px`;
       container.appendChild(bar);
     }
-  })(num);
+  })();
 });
+
 slider.addEventListener("input", function () {
   sliderValue.textContent = `${this.value}ms`;
   delay = this.value;
 });
 
-start.addEventListener("click", () => {
+reset.addEventListener('click',()=>{
+  location.reload();
+})
+
+start.addEventListener("click", async() => {
+  start.disabled= true;
   if (select.value == "bubble") {
-    bubbleSort();
+   await bubbleSort();
   }
   if (select.value == "selection") {
-    selectionSort();
+   await selectionSort();
   }
   if (select.value == "insertion") {
-    insertionSort();
+   await insertionSort();
   }
+  start.disabled= false;
 });
 
 
@@ -74,7 +82,7 @@ async function selectionSort() {
 
       let h1 = parseInt(bars[j].style.height);
       let h2 = parseInt(bars[min_idx].style.height);
-      await new Promise((resolve) => setTimeout(resolve, 50));
+      await new Promise((resolve) => setTimeout(resolve, delay));
       if (h1 < h2) {
         bars[min_idx].style.backgroundColor = "rgba(0, 0, 255,0.4)";
         min_idx = j;
