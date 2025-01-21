@@ -1,10 +1,13 @@
 const container = document.getElementById("container");
 const select = document.getElementById("select");
 const start = document.getElementById("start");
-const time = document.getElementById('slider');
-console.log(time.value);
-
-
+let slider = document.getElementById("slider");
+let sliderValue = document.getElementById("sliderValue");
+let delay = 50;
+slider.addEventListener("input", function () {
+  sliderValue.textContent = this.value;
+  delay = this.value;
+});
 
 start.addEventListener("click", () => {
   if (select.value == "bubble") {
@@ -14,7 +17,6 @@ start.addEventListener("click", () => {
     selectionSort();
   }
 });
-
 
 (function (num = 40) {
   container.innerHTML = "";
@@ -40,7 +42,7 @@ async function bubbleSort() {
 
       bar1.style.backgroundColor = "red";
       bar2.style.backgroundColor = "red";
-      await new Promise((resolve) => setTimeout(resolve, 10));
+      await new Promise((resolve) => setTimeout(resolve, delay));
       if (h1 > h2) {
         [bar1.style.height, bar2.style.height] = [
           bar2.style.height,
@@ -70,7 +72,7 @@ async function selectionSort() {
         min_idx = j;
         bars[min_idx].style.backgroundColor = "green";
       } else {
-        bars[j].style.backgroundColor = "blue"; 
+        bars[j].style.backgroundColor = "blue";
       }
     }
     if (min_idx !== i) {
