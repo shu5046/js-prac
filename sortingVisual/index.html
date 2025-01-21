@@ -7,14 +7,23 @@
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
-    <select name="sort" id="select">
-      <option value="bubble">Bubble Sort</option>
-      <option value="selection">Selection Sort</option>
-      <option value="insertion">Insertion Sort</option>
-    </select>
-    <button id="start">START</button>
-    <p>Delay: <span id="sliderValue">50</span></p>
-    <input type="range" id="slider" min="0" max="100" value="50" />
+    <div id="controls">
+      <select name="sort" id="select">
+        <option value="bubble">Bubble Sort</option>
+        <option value="selection">Selection Sort</option>
+        <option value="insertion">Insertion Sort</option>
+      </select>
+      <button id="start">START</button>
+    </div>
+    <div id="controls">
+      <p>Delay(ms):<span id="sliderValue">50</span></p>
+      <input type="range" id="slider" min="0" max="100" value="50" />
+    </div>
+    <div id="controls">
+      <p>Number of bars</p>
+      <input type="number" id="numbars" min="10" max="100" value="10">
+    </div>
+
 
     <div id="container"></div>
     <script src="index.js"></script>
