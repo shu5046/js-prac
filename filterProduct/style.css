@@ -1,0 +1,15 @@
+.filter-container{
+    display: flex;
+    flex-direction: row;
+}
+.category-container{
+    display: flex;
+    margin-left: auto;
+
+}
+.category-btn{
+    padding: 5px 10px;
+    margin-right: 10px;
+    background-color: aqua;
+    
+}
