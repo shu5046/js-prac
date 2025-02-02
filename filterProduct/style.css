@@ -11,5 +11,14 @@
     padding: 5px 10px;
     margin-right: 10px;
     background-color: aqua;
-    
+    cursor: pointer;
+}
+.product-container{
+    display: flex;
+}
+.card{
+    width: fit-content;
+    border: 0.5px solid black ;
+    padding: 10px;
+    margin: 10px;
 }
