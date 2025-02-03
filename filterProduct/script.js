@@ -26,6 +26,7 @@ const products = [
     category: "Clothing",
     sizes: ["S", "M", "L"],
   },
+  //i am making this comment to make some changes in the code, so that I can verify it in git 
   {
     id: 4,
     name: "Coffee Maker",
