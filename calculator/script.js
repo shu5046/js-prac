@@ -2,7 +2,7 @@ const button  = document.querySelectorAll('button');
 const input = document.getElementById('input')
 button.forEach(element=>{
     element.addEventListener('click',(e)=>{
-        console.log(e.target.textContent);
+       
         if(e.target.textContent=== 'C'){
             input.value = '';
         }
